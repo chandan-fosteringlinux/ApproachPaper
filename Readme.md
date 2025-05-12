@@ -16,10 +16,10 @@
 ## 🎯 Objective
 The main goal of this software is to:
 
-> Extract all `{{keys}}` from a `blueprint.xml` file, match them with a `dummy.cfg` file, and create a `ConfigMap.yml` file.
+> Extract all `{{keys}}` from a `.xml` files, match them with a `.cfg` file, and create a `ConfigMap.yml` file.
 
 - If the key exists in the `.cfg` file ➡️ use the actual value.
-- If the key is missing ➡️ use `null` as the value.
+- If the key is missing in `.cfg` but present in `.xml` files ➡️ use `null` as the value.
 
 ---
 
@@ -32,21 +32,21 @@ The main goal of this software is to:
 
 ---
 
-## 🧠 High-Level Working
-1. User provides 2 input files:
-   - `blueprint.xml` (contains placeholders like `{{some.key}}`)
-   - `dummy.cfg` (key-value config file)
-2. The program extracts all placeholders (keys) from the XML file.
-3. It checks each key in the `.cfg` file:
-   - If match is found → fetch value
-   - If not found → assign `null`
+## 🧠 Overview of the ConfigMap Generation Process
+1. User provides 2 types of input files:
+   - `.xml` (contains keys like `{{some.key}}`)
+   - `.cfg` (key-value pair config file)
+2. The program extracts all used (keys) from the .XML files.
+3. It checks each key in the `.cfg` files:
+   - If match is found → fetch value and assign that value to the key
+   - If not found → assign `null` value to the key
 4. A new `ConfigMap.yml` file is created with all key-value pairs.
 
 ---
 
 ## 📁 Input Files
 
-### 1. `blueprint.xml`
+### 1. `.xml`
 ```xml
 <route>
   <to uri="http://{{api.host}}/call"/>
@@ -54,7 +54,7 @@ The main goal of this software is to:
 </route>
 ```
 
-### 2. `dummy.cfg`
+### 2. `.cfg`
 ```properties
 api.host=localhost:8080
 jms.queue.name=paymentQueue
