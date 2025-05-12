@@ -41,7 +41,6 @@ The main goal of this software is to:
    - If match is found → fetch value
    - If not found → assign `null`
 4. A new `ConfigMap.yml` file is created with all key-value pairs.
-5. It also creates a cleaned `.cfg` file showing matched and unmatched keys.
 
 ---
 
@@ -68,10 +67,10 @@ jms.queue.name=paymentQueue
 ### 🥇 Step 1: Read the XML File
 - Open the `blueprint.xml` file.
 - Search for all `{{...}}` patterns.
-- Extract key names like `api.host`, `jms.queue.name`.
+- Extract key names like `api.host`.
 
-### 🥈 Step 2: Read the `.cfg` File
-- Load the `dummy.cfg` file.
+### 🥈 Step 2: Read the `.cfg` Files
+- Load the `.cfg` files.
 - Store all key-value pairs in a `Map`.
 
 ### 🥉 Step 3: Match Keys
@@ -92,21 +91,13 @@ data:
   some.missing.key: "null"
 ```
 
-### 📝 Step 5: Optional - Create `extractedValues.cfg`
-```properties
-api.host=localhost:8080
-jms.queue.name=paymentQueue
-some.missing.key=null
-```
-
 ---
 
 ## 📤 Output Files
 
-| File Name             | Purpose                                        |
-|----------------------|------------------------------------------------|
-| `configMap.yml`       | Final output for Kubernetes ConfigMap         |
-| `extractedValues.cfg` | Log file with resolved key-value pairs        |
+| File Name             | Purpose                            |
+|----------------------|-------------------------------------|
+| `configMap.yml`       | Final output for ConfigMap         |
 
 ---
 
@@ -117,13 +108,9 @@ some.missing.key=null
 | All keys match in `.cfg`         | All keys in `configMap.yml` have actual values     |
 | Some keys missing                | Missing keys show `"null"` in `configMap.yml`      |
 | Extra keys in `.cfg` file        | Only keys from XML are used, extras ignored        |
-| Special characters in values     | Values are enclosed in quotes `"..."`              |
 | Empty `dummy.cfg` file           | All values in `configMap.yml` will be `"null"`     |
 
 ---
 
 ## 📌 Future Scope
 - Add UI for selecting files
-- Support YAML templates with default values
-- Auto-upload generated ConfigMap to Kubernetes
-- Integrate into CI/CD pipelines
