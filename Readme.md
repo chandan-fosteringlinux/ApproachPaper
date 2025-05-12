@@ -6,7 +6,7 @@
 ## 📚 Table of Contents
 1. [🎯 Objective](#-objective)
 2. [🔧 Technologies Used](#-technologies-used)
-3. [🧠 High-Level Working](#-high-level-working)
+3. [🎯 Overview of the ConfigMap Generation Process](#-Overview-of-the-ConfigMap-Generation-Process)
 4. [📁 Input Files](#-input-files)
 5. [🚀 Step-by-Step Execution Flow](#-step-by-step-execution-flow)
 6. [📤 Output Files](#-output-files)
