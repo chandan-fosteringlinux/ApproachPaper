@@ -1,4 +1,4 @@
-# 📘 How to Use the MyApp.zip
+# 📘 Implementation General 2.0
 
 ---
 
