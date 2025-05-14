@@ -1,4 +1,4 @@
-# 📘 Implementation Guide – General 2.0
+# 📘 Implementation Guide – General 3.0
 
 ---
 
