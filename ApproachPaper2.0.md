@@ -33,7 +33,7 @@
 
 ## 📚 Table of Contents
 
-- [🎯 Objective][(#-objective)]  
+- [🎯 Objective](#-objective)
 - 🔧 Technologies Used  
 - 🧠 Overview  
 - 📁 Input Files  
