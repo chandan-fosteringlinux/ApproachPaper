@@ -203,9 +203,4 @@ sudo systemctl stop configmap-generator
 ## 📌 Future Scope
 
 - GUI for file selection & output preview
-- Schema validation of `.cfg`
-- Hot-reload of updated XML or CFG
-- Unit tests for template logic
-- Integration with CI/CD pipelines
-
 ---
